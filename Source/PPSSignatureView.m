@@ -205,6 +205,8 @@ static PPSSignaturePoint ViewPointToGL(CGPoint viewPoint, CGRect bounds, GLKVect
     self.hasSignature = NO;
 	
 	[self setNeedsDisplay];
+    
+    [self.signatureDelegate didUpdateSignature];
 }
 
 
@@ -355,6 +357,8 @@ static PPSSignaturePoint ViewPointToGL(CGPoint viewPoint, CGRect bounds, GLKVect
         
         previousVertex = v;
         addVertex(&length, previousVertex);
+        
+        [self.signatureDelegate didUpdateSignature];
     }
     
 	[self setNeedsDisplay];
